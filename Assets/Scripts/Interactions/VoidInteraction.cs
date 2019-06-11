@@ -40,4 +40,14 @@ public class VoidInteraction : Interaction
             }
         }
     }
+
+    public override void Kill()
+    {
+        base.Kill();
+        foreach (var element in absorbedElements)
+        {
+            Destroy(element.gameObject);
+        }
+    }
 }
+

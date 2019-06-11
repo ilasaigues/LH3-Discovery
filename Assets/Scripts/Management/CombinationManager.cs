@@ -7,14 +7,12 @@ public class CombinationManager : Manager
     public List<CombinationData> combinations = new List<CombinationData>();
     public ElementInstance emptyElementPrefab;
     public AchievementData combinationsAchievement;
-
     protected override void SubscribeToDirector()
     {
         Director.SubscribeManager(this);
     }
     public bool CombinationExists(ElementInstance a, ElementInstance b)
     {
-
         CombinationData validCombo = null;
         foreach (CombinationData combo in combinations)
         {
@@ -26,7 +24,10 @@ public class CombinationManager : Manager
         }
         if (validCombo != null && validCombo.result != null)
         {
-            Instantiate(emptyElementPrefab, (a.transform.position + b.transform.position) / 2, Quaternion.identity, a.transform.parent).data = validCombo.result;
+            ElementInstance element = Instantiate(emptyElementPrefab, (a.transform.position + b.transform.position) / 2, Quaternion.identity, a.transform.parent);
+
+            element.data = validCombo.result;
+            Director.GetManager<AchievementManager>().AddCount(element.data.creationAchievement);
             Director.GetManager<AchievementManager>().AddCount(combinationsAchievement);
         }
 

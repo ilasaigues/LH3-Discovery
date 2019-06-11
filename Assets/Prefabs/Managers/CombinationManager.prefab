@@ -48,6 +48,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 86b4b84a6ed8c354bbb252b4efa9093a, type: 2}
   - {fileID: 11400000, guid: 8f8b63df7f1c5f841b9811317043882b, type: 2}
   - {fileID: 11400000, guid: 2f569721ce3f5d941991277b83ad7731, type: 2}
+  - {fileID: 11400000, guid: 8b78a0caf6eab6e4090a563641e963a0, type: 2}
   emptyElementPrefab: {fileID: 1420885815584772585, guid: 5a1f2ba161037404c875113a5a7ba27e,
     type: 3}
   combinationsAchievement: {fileID: 11400000, guid: 41a981d6d687f804b95711099481011a,

@@ -5,4 +5,5 @@ using UnityEngine;
 public class ElementData : ScriptableObject
 {
     public Sprite sprite;
+    public AchievementData creationAchievement;
 }

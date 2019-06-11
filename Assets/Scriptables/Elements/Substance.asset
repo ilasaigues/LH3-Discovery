@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: Substance
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 40725255d1873a441ac291031d7c197f, type: 3}
+  creationAchievement: {fileID: 11400000, guid: 2617cca3fbafa034ca348e4b59ec12f1,
+    type: 2}

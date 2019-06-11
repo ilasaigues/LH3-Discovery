@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: Earth
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: aa1064d7239d6f0449d67c5acfecb7b8, type: 3}
+  creationAchievement: {fileID: 11400000, guid: 566b37b3e9a55d14aa46540e2bdba2b7,
+    type: 2}

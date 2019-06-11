@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   a: {fileID: 11400000, guid: 513d011af1e905e418d452a950cdbd07, type: 2}
   b: {fileID: 11400000, guid: 466ff6d5bc6b0264d804743f82b1f862, type: 2}
+  distance: 3
   interactionPrefab: {fileID: 1102421874148408455, guid: 5c90d2e4ce2e69246891fb6b581738a0,
     type: 3}

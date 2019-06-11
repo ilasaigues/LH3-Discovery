@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: Chaos
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 0167217640df58d4da470e4b98235a14, type: 3}
+  creationAchievement: {fileID: 11400000, guid: 3f5dfe0d50850ba4d8c3ff88f549cd67,
+    type: 2}

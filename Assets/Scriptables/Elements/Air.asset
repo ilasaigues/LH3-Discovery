@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: Air
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: bc443d4c2e429cb41a6468831cf1fd73, type: 3}
+  creationAchievement: {fileID: 11400000, guid: fd5d62bba287caf47839e5411fb94773,
+    type: 2}

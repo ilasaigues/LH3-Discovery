@@ -23,10 +23,10 @@ public class SecretDisplay : MonoBehaviour
         }
     }
 
-    public void Initialize(SecretData data, bool reveal)
+    public void Initialize(SecretData data, string word, bool reveal)
     {
         this.data = data;
-        codedText.text = revealedText.text = data.word;
+        codedText.text = revealedText.text = word;
         if (reveal)
         {
             var col = codedText.color;

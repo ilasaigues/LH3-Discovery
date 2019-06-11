@@ -45,11 +45,17 @@ public class SecretsManager : Manager
         word = Regex.Replace(word, "[^A-Za-z0-9 _]", "");
         foreach (var secret in lockedSecrets)
         {
-            if (word.ToLower().Equals(secret.word.ToLower())) return secret;
+            foreach (var variation in secret.words)
+            {
+                if (word.ToLower().Equals(variation.ToLower())) return secret;
+            }
         }
         foreach (var secret in unlockedSecrets)
         {
-            if (word.ToLower().Equals(secret.word.ToLower())) return secret;
+            foreach (var variation in secret.words)
+            {
+                if (word.ToLower().Equals(variation.ToLower())) return secret;
+            }
         }
         return null;
     }

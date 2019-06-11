@@ -14,6 +14,7 @@ public class ElementInstance : DraggableObject
 
     private void Start()
     {
+        OnBeginDrag += ItemPickedUp;
         OnEndDrag += ItemDropped;
         _spriteRenderer = GetComponent<SpriteRenderer>();
         if (data != null)
@@ -26,15 +27,23 @@ public class ElementInstance : DraggableObject
             Debug.LogWarning("Element instance was provided with no data. Destroying");
             Destroy(gameObject);
         }
+        Director.GetManager<InteractionManager>().SubscribeActiveInstance(this);
     }
 
 
-
+    void ItemPickedUp()
+    {
+        if (Director.GetManager<AchievementManager>().GetCount(data.creationAchievement) <= 0)
+        {
+            Director.GetManager<AchievementManager>().AddCount(data.creationAchievement);
+        }
+    }
 
     void ItemDropped()
     {
         _elementsTouching.Sort((a, b) =>
         {
+            if (a == null || b == null) return 0;
             if (Vector3.Distance(a.transform.position, transform.position) > Vector3.Distance(b.transform.position, transform.position))
                 return 1;
             return -1;
@@ -52,68 +61,20 @@ public class ElementInstance : DraggableObject
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (_dragging)
-        {
-            ElementInstance element = collision.gameObject.GetComponent<ElementInstance>();
-            if (element != null && !element.locked)
-            {
-                if (!_elementsTouching.Contains(element)) _elementsTouching.Add(element);
-                if (_elementsInteracting.Contains(element))
-                {
-                    _elementsInteracting.Remove(element);
-                    Director.GetManager<InteractionManager>().CancelInteraction(this, element);
-                }
+        if (collision.collider.isTrigger) return;
 
-            }
+        ElementInstance element = collision.gameObject.GetComponent<ElementInstance>();
+
+        if (element != null && !element.locked && Director.GetManager<CombinationManager>().CombinationExists(this, element))
+        {
+            Lock();
+            Destroy(this.gameObject);
+            Destroy(element.gameObject);
         }
     }
 
     private void Update()
     {
-    }
 
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (_dragging)
-        {
-            ElementInstance element = collision.gameObject.GetComponent<ElementInstance>();
-            if (element != null && !element.locked)
-            {
-                if (_elementsTouching.Contains(element)) _elementsTouching.Remove(element);
-                if (!_elementsInteracting.Contains(element))
-                {
-                    _elementsInteracting.Add(element);
-                    Director.GetManager<InteractionManager>().GetInteraction(this, element);
-
-                }
-            }
-        }
-    }
-
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        ElementInstance element = collision.gameObject.GetComponent<ElementInstance>();
-        if (element != null && !element.locked)
-        {
-            if (!_elementsInteracting.Contains(element))
-            {
-                _elementsInteracting.Add(element);
-                Director.GetManager<InteractionManager>().GetInteraction(this, element);
-            }
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        ElementInstance element = collision.gameObject.GetComponent<ElementInstance>();
-        if (element != null && !element.locked)
-        {
-            if (_elementsInteracting.Contains(element))
-            {
-                _elementsInteracting.Remove(element);
-                Director.GetManager<InteractionManager>().CancelInteraction(this, element);
-            }
-        }
     }
 }

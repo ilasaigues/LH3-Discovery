@@ -45,3 +45,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   availableInteractions:
   - {fileID: 11400000, guid: 922122bdf77fe1441bfec170beb25088, type: 2}
+  - {fileID: 11400000, guid: e278e287f3de3124180e2955c5473f32, type: 2}
+  - {fileID: 11400000, guid: ffb667ee9b18f604ebc6a7ba0d2bf0e0, type: 2}

@@ -9,7 +9,6 @@ public class Cradle : MonoBehaviour
     public float spawnTime;
     public Transform elementContainer;
 
-
     ElementInstance _lastSpawnedInstance;
     private float _currentSpawnTime;
 
