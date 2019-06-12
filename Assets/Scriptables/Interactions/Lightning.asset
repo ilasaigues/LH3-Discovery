@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce963f769a933c64ab8bfda3309faeb9, type: 3}
   m_Name: Lightning
   m_EditorClassIdentifier: 
-  a: {fileID: 11400000, guid: 4cfaf5f9218f6144f820b5368d58d01d, type: 2}
-  b: {fileID: 11400000, guid: 93d94615139a9644fb95de65f47e0307, type: 2}
+  componentA: {fileID: 11400000, guid: 4cfaf5f9218f6144f820b5368d58d01d, type: 2}
+  componentB: {fileID: 11400000, guid: 93d94615139a9644fb95de65f47e0307, type: 2}
   distance: 3
   interactionPrefab: {fileID: 3538947673441992129, guid: 2b302fcb131cb9340be724539fd1a516,
     type: 3}

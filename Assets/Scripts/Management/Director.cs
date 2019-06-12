@@ -15,7 +15,10 @@ public static class Director
     public static T GetManager<T>() where T : Manager
     {
         string type = typeof(T).ToString();
-        if (managers.ContainsKey(type)) return managers[type] as T;
+        if (managers != null && managers.ContainsKey(type) && managers[type] != null)
+        {
+            return managers[type] as T;
+        }
         Debug.LogWarning("Manager type " + type + " not found, returning null.");
         return null;
     }

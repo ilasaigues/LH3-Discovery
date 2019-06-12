@@ -36,7 +36,7 @@ public class Cradle : MonoBehaviour
         if (element != null)
         {
             _lastSpawnedInstance = Instantiate(Director.GetManager<CombinationManager>().emptyElementPrefab, transform.position, Quaternion.identity, elementContainer);
-            _lastSpawnedInstance.data = element;
+            _lastSpawnedInstance.Data = element;
         }
         _currentSpawnTime = 0;
     }

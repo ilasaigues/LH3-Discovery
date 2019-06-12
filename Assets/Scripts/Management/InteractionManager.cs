@@ -21,14 +21,14 @@ public class InteractionManager : Manager
     {
         foreach (var interaction in availableInteractions)
         {
-            if (!_interactibleData.Contains(interaction.a)) _interactibleData.Add(interaction.a);
-            if (!_interactibleData.Contains(interaction.b)) _interactibleData.Add(interaction.b);
+            if (!_interactibleData.Contains(interaction.componentA)) _interactibleData.Add(interaction.componentA);
+            if (!_interactibleData.Contains(interaction.componentB)) _interactibleData.Add(interaction.componentB);
         }
     }
 
     public void SubscribeActiveInstance(ElementInstance element)
     {
-        if (_interactibleData.Contains(element.data))
+        if (_interactibleData.Contains(element.Data))
         {
             _activeInstances.Add(element);
         }
@@ -56,7 +56,7 @@ public class InteractionManager : Manager
         InteractionData validInteraction = null;
         foreach (var interaction in availableInteractions)
         {
-            if (interaction.IsFulfilledBy(a.data, b.data))
+            if (interaction.IsFulfilledBy(a.Data, b.Data))
             {
                 if (Vector3.Distance(a.transform.position, b.transform.position) < interaction.distance)
                     validInteraction = interaction;
@@ -67,9 +67,7 @@ public class InteractionManager : Manager
         if (validInteraction != null)
         {
             Interaction newInteraction = Instantiate(validInteraction.interactionPrefab);
-
-            newInteraction.a = a;
-            newInteraction.b = b;
+            newInteraction.Birth(a, b);            
             newInteraction.OnKill += () => { _activeInteractions.Remove(hash); };
             newInteraction.transform.position = (a.transform.position + b.transform.position) / 2;
             _activeInteractions[hash] = newInteraction;

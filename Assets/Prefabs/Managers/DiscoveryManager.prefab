@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6660626601595395085
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6660626601595395087}
+  - component: {fileID: 6660626601595395086}
+  m_Layer: 0
+  m_Name: DiscoveryManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &6660626601595395087
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6660626601595395085}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 491.60236, y: 268.7019, z: 4.875}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6660626601595395086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6660626601595395085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b4e575b8dc3a1342a3256892b4237e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lockedDiscoveries:
+  - {fileID: 11400000, guid: 5f2bcf736fd447441b8484af1c6acc72, type: 2}
+  - {fileID: 11400000, guid: 8647ac4ba1ef2b9449a816f688ab73d9, type: 2}
+  - {fileID: 11400000, guid: 31d9184cc30db0541ab74372f2ac960c, type: 2}
+  - {fileID: 11400000, guid: 641a7ec345c884f46b2efab16e3c8edc, type: 2}
+  - {fileID: 11400000, guid: 20c7bb1b465e39947a9f644ed20cf67e, type: 2}
+  - {fileID: 11400000, guid: 6d25cefb144934b4e8e97734eb81808d, type: 2}
+  - {fileID: 11400000, guid: 40fc1244a6158224e88f4afd2ffc2391, type: 2}
+  - {fileID: 11400000, guid: 9f4ae68281347fe4ab92f97640cfb120, type: 2}
+  - {fileID: 11400000, guid: 84e5c15bab23340469cd4f2c6749984c, type: 2}
+  - {fileID: 11400000, guid: 24b419e7c4480954a9fd5e53fd1b0684, type: 2}
+  - {fileID: 11400000, guid: 6d948e1563a806d44ba4376fa03e5874, type: 2}
+  - {fileID: 11400000, guid: b97acebf5726fd8488f1f9f05e3533f5, type: 2}
+  - {fileID: 11400000, guid: bf9ce8b130fd154409d8122dc6d3c1fa, type: 2}
+  - {fileID: 11400000, guid: 205070b07697e9847a0047e05a1aefe0, type: 2}
+  - {fileID: 11400000, guid: 576177c9663cddf4fbd693d5dfff4ba4, type: 2}
+  - {fileID: 11400000, guid: 7607c677f828656449373eef76659cb6, type: 2}
+  - {fileID: 11400000, guid: 035ec7a6e60464f4b8f75db009f3c56e, type: 2}
+  - {fileID: 11400000, guid: b7a8bb6bc65873b47aeca0c1b4c6aef3, type: 2}
+  - {fileID: 11400000, guid: 9ac26fb2e1b979942af5f22773a899c7, type: 2}
+  - {fileID: 11400000, guid: da61bb90cb1b37c45a37d66fe700999a, type: 2}
+  - {fileID: 11400000, guid: 2d96df12735a4a84496d182fb926ab0a, type: 2}
+  unlockedDiscoveries: []

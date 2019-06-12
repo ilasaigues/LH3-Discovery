@@ -9,7 +9,7 @@ public abstract class Interaction : MonoBehaviour
     public ElementInstance b;
 
     public InteractionData data;
-
+    public AchievementData interactionAchievement;
     public System.Action OnKill = () => { };
 
     CircleCollider2D _collider;
@@ -24,6 +24,14 @@ public abstract class Interaction : MonoBehaviour
     {
         this.a = a;
         this.b = b;
+        InteractionAchievement();
+    }
+
+    private  void InteractionAchievement()
+    {
+        AchievementManager achManager = Director.GetManager<AchievementManager>();
+        achManager.AddCount(interactionAchievement);
+        achManager.AddCount(achManager.interactionAchievement);
     }
 
     public virtual void Kill()
@@ -40,17 +48,37 @@ public abstract class Interaction : MonoBehaviour
             Kill();
             return;
         }
-        transform.position = (a.transform.position + b.transform.position) / 2;
+        Reposition();
         Resize();
-        transform.right = a.transform.position - transform.position;
+        Redirect();
     }
 
-
+    protected virtual void Reposition()
+    {
+        transform.position = (a.transform.position + b.transform.position) / 2;
+    }
 
     protected virtual void Resize()
     {
         transform.localScale = Vector3.one * (Vector3.Distance(a.transform.position, transform.position) * 2 - .5f);
     }
+    protected virtual void Redirect()
+    {
+        transform.right = a.transform.position - transform.position;
+    }
 
-    public abstract void OnTriggerEnter2D(Collider2D other);
+
+    public void OnTriggerStay2D(Collider2D other)
+    {
+        ElementInstance element = other.GetComponent<ElementInstance>();
+        if (element != null)
+        {
+            if (element != a && element != b)
+            {
+                Interact(element);
+            }
+        }
+    }
+
+    public abstract void Interact(ElementInstance element);
 }

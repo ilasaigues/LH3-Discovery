@@ -7,7 +7,4 @@ public class SecretData : ScriptableObject
     public List<string> words = new List<string>();
     [TextArea]
     public string hint;
-    [TextArea]
-    public string revealedText;
-    public List<AchievementManager.AchievementCounter> unlockConditions = new List<AchievementManager.AchievementCounter>();
 }

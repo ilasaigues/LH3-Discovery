@@ -66,6 +66,8 @@ MonoBehaviour:
   a: {fileID: 0}
   b: {fileID: 0}
   data: {fileID: 11400000, guid: 922122bdf77fe1441bfec170beb25088, type: 2}
+  interactionAchievement: {fileID: 11400000, guid: 8ff2e9a5b0bc86a40b0d39841f657699,
+    type: 2}
 --- !u!1 &6586405084485014623
 GameObject:
   m_ObjectHideFlags: 0

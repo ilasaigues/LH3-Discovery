@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.EventSystems;
 public abstract class DraggableObject : MonoBehaviour
 {
 
@@ -29,6 +29,7 @@ public abstract class DraggableObject : MonoBehaviour
 
     virtual protected void FixedUpdate()
     {
+        if (EventSystem.current.IsPointerOverGameObject()) return;
         if (!locked && dragging)
         {
             Vector3 position = Camera.main.ScreenToWorldPoint(Input.mousePosition) + _dragOffset;
@@ -39,12 +40,14 @@ public abstract class DraggableObject : MonoBehaviour
 
     public void OnMouseDown()
     {
+        if (EventSystem.current.IsPointerOverGameObject()) return;
         if (!locked)
             _dragOffset = transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
     }
 
     public void OnMouseDrag()
     {
+        if (EventSystem.current.IsPointerOverGameObject()) return;
         if (!locked && !dragging)
         {
             OnBeginDrag();
@@ -55,6 +58,7 @@ public abstract class DraggableObject : MonoBehaviour
 
     public void OnMouseUp()
     {
+        if (EventSystem.current.IsPointerOverGameObject()) return;
         if (!locked && dragging)
         {
             OnEndDrag();

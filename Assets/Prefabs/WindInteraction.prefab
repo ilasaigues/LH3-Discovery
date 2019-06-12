@@ -105,7 +105,7 @@ ParticleSystem:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  moveWithTransform: 0
+  moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 0
   randomSeed: 0
@@ -4772,4 +4772,7 @@ MonoBehaviour:
   a: {fileID: 0}
   b: {fileID: 0}
   data: {fileID: 11400000, guid: ffb667ee9b18f604ebc6a7ba0d2bf0e0, type: 2}
+  interactionAchievement: {fileID: 11400000, guid: 25e22aba6cc74e24bbfc9da4c453866f,
+    type: 2}
   pushPower: 1
+  airData: {fileID: 11400000, guid: 649ac293623751342a8eee824cad17f0, type: 2}

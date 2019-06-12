@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CombinationManager : Manager
 {
-    public List<CombinationData> combinations = new List<CombinationData>();
+    public List<ElementData> elements = new List<ElementData>();
     public ElementInstance emptyElementPrefab;
     public AchievementData combinationsAchievement;
     protected override void SubscribeToDirector()
@@ -13,24 +13,24 @@ public class CombinationManager : Manager
     }
     public bool CombinationExists(ElementInstance a, ElementInstance b)
     {
-        CombinationData validCombo = null;
-        foreach (CombinationData combo in combinations)
+        ElementData validResult = null;
+        foreach (ElementData element in elements)
         {
-            if (combo.IsFulfilledBy(a.data, b.data))
+            if (element.IsFulfilledBy(a.Data, b.Data))
             {
-                validCombo = combo;
+                validResult = element;
                 break;
             }
         }
-        if (validCombo != null && validCombo.result != null)
+        if (validResult != null)
         {
             ElementInstance element = Instantiate(emptyElementPrefab, (a.transform.position + b.transform.position) / 2, Quaternion.identity, a.transform.parent);
 
-            element.data = validCombo.result;
-            Director.GetManager<AchievementManager>().AddCount(element.data.creationAchievement);
+            element.Data = validResult;
+            Director.GetManager<AchievementManager>().AddCount(validResult.creationAchievement);
             Director.GetManager<AchievementManager>().AddCount(combinationsAchievement);
         }
 
-        return validCombo != null;
+        return validResult != null;
     }
 }

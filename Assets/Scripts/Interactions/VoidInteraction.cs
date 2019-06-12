@@ -6,20 +6,6 @@ public class VoidInteraction : Interaction
 {
     List<ElementInstance> absorbedElements = new List<ElementInstance>();
 
-    public override void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.isTrigger) return;
-        ElementInstance element = other.GetComponent<ElementInstance>();
-        if (element != a && element != b && element != null)
-        {
-            if (!absorbedElements.Contains(element))
-            {
-                element.Lock();
-                absorbedElements.Add(element);
-            }
-        }
-
-    }
 
     public void Update()
     {
@@ -49,5 +35,16 @@ public class VoidInteraction : Interaction
             Destroy(element.gameObject);
         }
     }
+
+    public override void Interact(ElementInstance element)
+    {
+        if (!absorbedElements.Contains(element))
+        {
+            element.Lock();
+            absorbedElements.Add(element);
+        }
+    }
+
+
 }
 

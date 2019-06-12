@@ -4,12 +4,13 @@ using UnityEngine;
 
 public abstract class RecipeData : ScriptableObject
 {
-    public ElementData a;
-    public ElementData b;
+    public ElementData componentA;
+    public ElementData componentB;
 
     public bool IsFulfilledBy(ElementData a, ElementData b)
     {
-        return (this.a == a && this.b == b) || (this.a == b && this.b == a);
+        if (componentA == null || componentB == null) return false;
+        return (this.componentA == a && this.componentB == b) || (this.componentA == b && this.componentB == a);
 
     }
 }

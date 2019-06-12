@@ -4,35 +4,73 @@ using UnityEngine;
 using UnityEngine.UI;
 public class SecretDisplay : MonoBehaviour
 {
-    public SecretData data;
+    public SecretData secret;
     public Text codedText;
     public Text revealedText;
+
+    public System.Action<SecretData> OnPointerEnter = (s) => { };
+    public System.Action<SecretData> OnPointerExit = (s) => { };
+    public System.Action<SecretData> OnClick = (s) => { };
+
     public void OnMouseEnter()
     {
-        if (data != null)
+        if (secret != null)
         {
-            Director.GetManager<SecretsManager>().OnSecretMouseEnter(data);
+            OnPointerEnter(secret);
         }
     }
 
     public void OnMouseExit()
     {
-        if (data != null)
+        if (secret != null)
         {
-            Director.GetManager<SecretsManager>().OnSecretMouseExit(data);
+            OnPointerExit(secret);
         }
     }
 
-    public void Initialize(SecretData data, string word, bool reveal)
+    public void OnMouseDown()
     {
-        this.data = data;
+        OnClick(secret);
+    }
+
+    public void Initialize(SecretData data, string word)
+    {
+        Director.GetManager<SecretsManager>().OnDiscoveryAssigned += UpdateDisplay;
+        this.secret = data;
         codedText.text = revealedText.text = word;
-        if (reveal)
+        CheckDisplayUnlock();
+    }
+
+    void UpdateDisplay(SecretData secret, DiscoveryData discoveryData)
+    {
+        if (secret == this.secret) CheckDisplayUnlock();
+    }
+
+    void CheckDisplayUnlock()
+    {
+        if (Director.GetManager<SecretsManager>().GetAssignedDiscovery(secret))
+        {
+            if (codedText != null)
+            {
+                var col = codedText.color;
+                col.a = .15f;
+                codedText.color = col;
+            }
+            if (revealedText != null)
+            {
+                revealedText.gameObject.SetActive(true);
+                revealedText.text = Director.GetManager<SecretsManager>().GetAssignedDiscovery(secret).name;
+            }
+        }
+        else
         {
             var col = codedText.color;
-            col.a = .15f;
+            col.a = 1;
             codedText.color = col;
-            revealedText.gameObject.SetActive(true);
+            if (revealedText != null)
+            {
+                revealedText.gameObject.SetActive(false);
+            }
         }
     }
 }

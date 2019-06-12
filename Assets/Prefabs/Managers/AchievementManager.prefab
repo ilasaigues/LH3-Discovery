@@ -43,3 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dd1cb5889a03bf419a507ec0f7c3851, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickupAchievement: {fileID: 11400000, guid: 92d1dfea7de3fdb48b254c7c50512f68, type: 2}
+  interactionAchievement: {fileID: 11400000, guid: e46350b01ceed0d4eb9fff383aa2aebd,
+    type: 2}

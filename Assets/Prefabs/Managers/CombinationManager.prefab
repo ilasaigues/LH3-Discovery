@@ -43,12 +43,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d39850555eccbc9499cd47f1450b6472, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  combinations:
-  - {fileID: 11400000, guid: 9899fccbe2ed55d4a8e8099e2868ee18, type: 2}
-  - {fileID: 11400000, guid: 86b4b84a6ed8c354bbb252b4efa9093a, type: 2}
-  - {fileID: 11400000, guid: 8f8b63df7f1c5f841b9811317043882b, type: 2}
-  - {fileID: 11400000, guid: 2f569721ce3f5d941991277b83ad7731, type: 2}
-  - {fileID: 11400000, guid: 8b78a0caf6eab6e4090a563641e963a0, type: 2}
+  elements:
+  - {fileID: 11400000, guid: 649ac293623751342a8eee824cad17f0, type: 2}
+  - {fileID: 11400000, guid: 513d011af1e905e418d452a950cdbd07, type: 2}
+  - {fileID: 11400000, guid: 21c9a5b8835d5df4bb0c0833414b1bd8, type: 2}
+  - {fileID: 11400000, guid: 9445c0c309b00ce408230204b4ea2b38, type: 2}
+  - {fileID: 11400000, guid: 1afecf4171379944ebdd0db4b50e7c2d, type: 2}
+  - {fileID: 11400000, guid: 5414efb5e5fe3544b9ec22c52b1c7853, type: 2}
+  - {fileID: 11400000, guid: 05e6fa00fe4a1bc4e97eb3e86b59d311, type: 2}
+  - {fileID: 11400000, guid: 532a790a4241cfb49ae61897953d4cd9, type: 2}
+  - {fileID: 11400000, guid: 93d94615139a9644fb95de65f47e0307, type: 2}
+  - {fileID: 11400000, guid: 466ff6d5bc6b0264d804743f82b1f862, type: 2}
+  - {fileID: 11400000, guid: 4cfaf5f9218f6144f820b5368d58d01d, type: 2}
+  - {fileID: 11400000, guid: 022f186c2717f4d4c864ad86309059e7, type: 2}
+  - {fileID: 11400000, guid: 86e7c133626369a429ff61f09ff8f27b, type: 2}
+  - {fileID: 11400000, guid: 2c2c5599bae5dfb4fbb916934944e809, type: 2}
+  - {fileID: 11400000, guid: 431148143c0889846aa2dcd9e4ea7d49, type: 2}
   emptyElementPrefab: {fileID: 1420885815584772585, guid: 5a1f2ba161037404c875113a5a7ba27e,
     type: 3}
   combinationsAchievement: {fileID: 11400000, guid: 41a981d6d687f804b95711099481011a,

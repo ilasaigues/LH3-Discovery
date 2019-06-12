@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a259b6f8329fec4dabf70244385ed1a, type: 3}
+  m_Name: Spirit
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 21300000, guid: 60225872f8796814fad944dfb8be62d8, type: 3}
+  unlockConditions:
+  - data: {fileID: 11400000, guid: dc5850e43a247c344a35965175d8691d, type: 2}
+    count: 1

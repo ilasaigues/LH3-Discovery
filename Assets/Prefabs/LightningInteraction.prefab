@@ -75,6 +75,13 @@ MonoBehaviour:
   a: {fileID: 0}
   b: {fileID: 0}
   data: {fileID: 11400000, guid: e278e287f3de3124180e2955c5473f32, type: 2}
+  interactionAchievement: {fileID: 11400000, guid: 20ea8e8c5a1c4d8478b6ebe33b6c94d4,
+    type: 2}
+  recipes:
+  - input: {fileID: 11400000, guid: 1afecf4171379944ebdd0db4b50e7c2d, type: 2}
+    output: {fileID: 11400000, guid: 21c9a5b8835d5df4bb0c0833414b1bd8, type: 2}
+  - input: {fileID: 11400000, guid: 2c2c5599bae5dfb4fbb916934944e809, type: 2}
+    output: {fileID: 11400000, guid: 05e6fa00fe4a1bc4e97eb3e86b59d311, type: 2}
 --- !u!1 &5088776472070928980
 GameObject:
   m_ObjectHideFlags: 0

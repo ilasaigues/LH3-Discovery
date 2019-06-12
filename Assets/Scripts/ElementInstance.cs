@@ -5,7 +5,19 @@ using UnityEngine.EventSystems;
 [RequireComponent(typeof(SpriteRenderer))]
 public class ElementInstance : DraggableObject
 {
-    public ElementData data;
+    private ElementData _data;
+    public ElementData Data
+    {
+        get { return _data; }
+        set
+        {
+            if (_data != value)
+            {
+                _data = value;
+                Initialize();
+            }
+        }
+    }
     private SpriteRenderer _spriteRenderer;
 
     private List<ElementInstance> _elementsTouching = new List<ElementInstance>();
@@ -16,27 +28,36 @@ public class ElementInstance : DraggableObject
     {
         OnBeginDrag += ItemPickedUp;
         OnEndDrag += ItemDropped;
-        _spriteRenderer = GetComponent<SpriteRenderer>();
-        if (data != null)
+
+        Initialize();
+        Director.GetManager<InteractionManager>().SubscribeActiveInstance(this);
+    }
+
+
+    void Initialize()
+    {
+        if (_spriteRenderer == null)
+            _spriteRenderer = GetComponent<SpriteRenderer>();
+        if (Data != null)
         {
-            gameObject.name = data.name;
-            _spriteRenderer.sprite = data.sprite;
+            gameObject.name = Data.name;
+            _spriteRenderer.sprite = Data.sprite;
         }
         else
         {
             Debug.LogWarning("Element instance was provided with no data. Destroying");
             Destroy(gameObject);
         }
-        Director.GetManager<InteractionManager>().SubscribeActiveInstance(this);
     }
-
 
     void ItemPickedUp()
     {
-        if (Director.GetManager<AchievementManager>().GetCount(data.creationAchievement) <= 0)
+        AchievementManager achManager = Director.GetManager<AchievementManager>();
+        if (achManager.GetCount(Data.creationAchievement) <= 0)
         {
-            Director.GetManager<AchievementManager>().AddCount(data.creationAchievement);
+            achManager.AddCount(Data.creationAchievement);
         }
+        achManager.AddCount(achManager.pickupAchievement);
     }
 
     void ItemDropped()

@@ -4,53 +4,26 @@ using UnityEngine;
 using System.Text.RegularExpressions;
 public class SecretsManager : Manager
 {
-
-    public System.Action<SecretData> OnSecretMouseEnter = (s) => { };
-    public System.Action<SecretData> OnSecretMouseExit = (s) => { };
-
+    public System.Action<SecretData, DiscoveryData> OnDiscoveryAssigned = (s, d) => { };
     protected override void SubscribeToDirector()
     {
         Director.SubscribeManager(this);
     }
-
-    public List<SecretData> lockedSecrets = new List<SecretData>();
-    public List<SecretData> unlockedSecrets = new List<SecretData>();
+    public List<SecretData> allSecrets = new List<SecretData>();
+    public Dictionary<SecretData, DiscoveryData> matches = new Dictionary<SecretData, DiscoveryData>();
 
     private void Start()
     {
-        Director.GetManager<AchievementManager>().achievementCountUpdated += CheckAllSecrets;
-    }
-
-    void CheckAllSecrets()
-    {
-        for (int i = lockedSecrets.Count - 1; i >= 0; i--)
+        foreach (var secret in allSecrets)
         {
-            var secret = lockedSecrets[i];
-
-            bool fulfilled = true;
-            foreach (var condition in secret.unlockConditions)
-            {
-                fulfilled &= Director.GetManager<AchievementManager>().GetCount(condition.data) >= condition.count;
-            }
-            if (fulfilled)
-            {
-                unlockedSecrets.Add(secret);
-                lockedSecrets.RemoveAt(i);
-            }
+            matches[secret] = null;
         }
     }
 
     public SecretData GetSecretData(string word)
     {
         word = Regex.Replace(word, "[^A-Za-z0-9 _]", "");
-        foreach (var secret in lockedSecrets)
-        {
-            foreach (var variation in secret.words)
-            {
-                if (word.ToLower().Equals(variation.ToLower())) return secret;
-            }
-        }
-        foreach (var secret in unlockedSecrets)
+        foreach (var secret in allSecrets)
         {
             foreach (var variation in secret.words)
             {
@@ -60,8 +33,15 @@ public class SecretsManager : Manager
         return null;
     }
 
-    public bool IsDataUnlocked(SecretData data)
+    public DiscoveryData GetAssignedDiscovery(SecretData secret)
     {
-        return unlockedSecrets.Contains(data);
+        return matches[secret];
     }
+
+    public void AssignDiscoveryToData(SecretData secret, DiscoveryData discovery)
+    {
+        matches[secret] = discovery;
+        OnDiscoveryAssigned(secret, discovery);
+    }
+
 }

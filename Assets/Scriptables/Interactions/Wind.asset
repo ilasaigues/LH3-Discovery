@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce963f769a933c64ab8bfda3309faeb9, type: 3}
   m_Name: Wind
   m_EditorClassIdentifier: 
-  a: {fileID: 11400000, guid: 649ac293623751342a8eee824cad17f0, type: 2}
-  b: {fileID: 11400000, guid: 649ac293623751342a8eee824cad17f0, type: 2}
+  componentA: {fileID: 11400000, guid: 649ac293623751342a8eee824cad17f0, type: 2}
+  componentB: {fileID: 11400000, guid: 4cfaf5f9218f6144f820b5368d58d01d, type: 2}
   distance: 3
   interactionPrefab: {fileID: 463493712456530356, guid: 2ba6b9b76f8a9684e8bfdf93b95d08bc,
     type: 3}

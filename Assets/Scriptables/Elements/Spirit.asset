@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abe69c1317e748f4b8be4d0c7258588a, type: 3}
   m_Name: Spirit
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 707b1c378be81bc41b248d8b9dbf5d94, type: 3}
-  creationAchievement: {fileID: 11400000, guid: 51a0fd0de7681f74084bc939901d9600,
+  componentA: {fileID: 11400000, guid: 466ff6d5bc6b0264d804743f82b1f862, type: 2}
+  componentB: {fileID: 11400000, guid: 9445c0c309b00ce408230204b4ea2b38, type: 2}
+  sprite: {fileID: 21300000, guid: 60225872f8796814fad944dfb8be62d8, type: 3}
+  creationAchievement: {fileID: 11400000, guid: dc5850e43a247c344a35965175d8691d,
     type: 2}

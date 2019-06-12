@@ -5,30 +5,39 @@ using UnityEngine;
 public class WindInteraction : Interaction
 {
     public float pushPower = 1;
+    public ElementData airData;
+    private ElementInstance _airInstance;
+    private ElementInstance _powerInstance;
 
-    public override void OnTriggerEnter2D(Collider2D other)
-    {
-    }
-
-    public void OnTriggerStay2D(Collider2D other)
-    {
-        if (other.isTrigger) return;
-        ElementInstance element = other.GetComponent<ElementInstance>();
-        if (element != null && element != a && element != b && element.data != a.data) PushElement(element);
-    }
-
-    void PushElement(ElementInstance element)
+    public override void Interact(ElementInstance element)
     {
         if (element.dragging) return;
-        Debug.Log("Push");
-        Vector3 center = transform.position;
-        Vector3 side = (a.transform.position - center).normalized;
-        Vector3 pushDirection = Vector3.Cross(Vector3.forward, side);
-        element.transform.position += pushDirection * pushPower * Time.deltaTime;
+        element.transform.position += transform.up * pushPower * Time.deltaTime;
+    }
+    protected override void Reposition()
+    {
+        if (a.Data == airData)
+        {
+            _airInstance = a;
+            _powerInstance = b;
+        }
+        else
+        {
+            _airInstance = b;
+            _powerInstance = a;
+        }
+
+        transform.position = _airInstance.transform.position;
     }
 
     protected override void Resize()
     {
-        transform.localScale = new Vector2((Vector3.Distance(a.transform.position, transform.position) * 2 - .5f), 1.5f);
+        transform.localScale = new Vector3(1, data.distance - Vector3.Distance(a.transform.position, b.transform.position), 1);
+        //transform.localScale = new Vector2((Vector3.Distance(a.transform.position, transform.position) * 2 - .5f), 1.5f);
+    }
+
+    protected override void Redirect()
+    {
+        transform.up = _airInstance.transform.position - _powerInstance.transform.position;
     }
 }

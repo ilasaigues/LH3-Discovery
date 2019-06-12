@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 [CreateAssetMenu(fileName = "New Element", menuName = "Scriptables/Element")]
-public class ElementData : ScriptableObject
+public class ElementData : RecipeData
 {
     public Sprite sprite;
     public AchievementData creationAchievement;
