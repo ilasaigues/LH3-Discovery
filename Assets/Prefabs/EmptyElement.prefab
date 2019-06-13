@@ -94,7 +94,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8a9c58ebe6978c419c04325753f73e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 0}
+  pickupSound: {fileID: 11400000, guid: cfd86ad7f01bb75409bfd24377dd2898, type: 2}
+  dropSound: {fileID: 11400000, guid: 69f56d74ca93d014c9db40d01f458d0e, type: 2}
 --- !u!50 &1420885815584772581
 Rigidbody2D:
   serializedVersion: 4

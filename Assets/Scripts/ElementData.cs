@@ -5,5 +5,6 @@ using UnityEngine;
 public class ElementData : RecipeData
 {
     public Sprite sprite;
+    public SoundValue creationSound;
     public AchievementData creationAchievement;
 }

@@ -12,6 +12,8 @@ public class BookController : MonoBehaviour
 
     public System.Action<SecretData> OnSecretClicked = (s) => { };
 
+    public SoundValue pageTurnSounds;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,25 +37,25 @@ public class BookController : MonoBehaviour
 
     public void NextPage()
     {
-        int _oldPage = _currentPage;
-        _currentPage = Mathf.Clamp(_currentPage + 1, 0, pages.Count - 1);
-        if (_currentPage != _oldPage)
-        {
-            pages[_oldPage].gameObject.SetActive(false);
-            pages[_currentPage].gameObject.SetActive(true);
+        ChangePage(1);
 
-        }
     }
 
     public void PrevPage()
     {
+        ChangePage(-1);
+    }
+
+    void ChangePage(int offset)
+    {
         int _oldPage = _currentPage;
-        _currentPage = Mathf.Clamp(_currentPage - 1, 0, pages.Count - 1);
+        _currentPage = Mathf.Clamp(_currentPage + offset, 0, pages.Count - 1);
         if (_currentPage != _oldPage)
         {
             pages[_oldPage].gameObject.SetActive(false);
             pages[_currentPage].gameObject.SetActive(true);
         }
+        Director.GetManager<SoundManager>().PlaySound(pageTurnSounds);
     }
 
 

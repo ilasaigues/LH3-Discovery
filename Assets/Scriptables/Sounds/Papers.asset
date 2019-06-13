@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fc4c297592296948a0ec9906d1a4b60, type: 3}
+  m_Name: Papers
+  m_EditorClassIdentifier: 
+  Value: {fileID: 0}
+  volume: 0.5
+  loop: 0
+  mixerGroup: {fileID: 243362131554981962, guid: ef580fe0b19d7054f8e5c708f6c60cb4,
+    type: 2}
+  pitch: 1
+  clips:
+  - {fileID: 8300000, guid: a9114d3bc3b308a49beb84eb9e216951, type: 3}
+  - {fileID: 8300000, guid: 1c28856b5f1fcd5459b5a994d5ebbef7, type: 3}
+  - {fileID: 8300000, guid: d838ec387f75a404ebae7513bddf2872, type: 3}
+  - {fileID: 8300000, guid: 9de0960a6d2c6d64eb7a11816c467f06, type: 3}
+  - {fileID: 8300000, guid: db405c558b7867d449df28ac876d4d18, type: 3}
+  - {fileID: 8300000, guid: 07d6c90de1817774f993219caaa54b23, type: 3}
+  - {fileID: 8300000, guid: 445f0b4ab23eede408b7f6a7cf4e3137, type: 3}
+  - {fileID: 8300000, guid: 6f6b79f2a4ff87749b1fe01463ffe696, type: 3}
+  - {fileID: 8300000, guid: 90d1d55cea208e74d8cee217d1d31898, type: 3}

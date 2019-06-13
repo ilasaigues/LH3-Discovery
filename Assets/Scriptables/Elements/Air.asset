@@ -15,5 +15,6 @@ MonoBehaviour:
   componentA: {fileID: 11400000, guid: 466ff6d5bc6b0264d804743f82b1f862, type: 2}
   componentB: {fileID: 11400000, guid: 4cfaf5f9218f6144f820b5368d58d01d, type: 2}
   sprite: {fileID: 21300000, guid: bc443d4c2e429cb41a6468831cf1fd73, type: 3}
+  creationSound: {fileID: 11400000, guid: 55fea5abe9fd9424dbe03a277514cf06, type: 2}
   creationAchievement: {fileID: 11400000, guid: fd5d62bba287caf47839e5411fb94773,
     type: 2}

@@ -42,7 +42,11 @@ public abstract class DraggableObject : MonoBehaviour
     {
         if (EventSystem.current.IsPointerOverGameObject()) return;
         if (!locked)
+        {
             _dragOffset = transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            transform.localScale = Vector3.one * 1.1f;
+        }
+
     }
 
     public void OnMouseDrag()
@@ -64,6 +68,8 @@ public abstract class DraggableObject : MonoBehaviour
             OnEndDrag();
             gameObject.layer = _originalLayer;
             dragging = false;
+            transform.localScale = Vector3.one;
+
         }
 
     }

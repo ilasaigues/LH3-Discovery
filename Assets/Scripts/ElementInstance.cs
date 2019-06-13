@@ -5,6 +5,9 @@ using UnityEngine.EventSystems;
 [RequireComponent(typeof(SpriteRenderer))]
 public class ElementInstance : DraggableObject
 {
+    public SoundValue pickupSound;
+    public SoundValue dropSound;
+
     private ElementData _data;
     public ElementData Data
     {
@@ -42,6 +45,7 @@ public class ElementInstance : DraggableObject
         {
             gameObject.name = Data.name;
             _spriteRenderer.sprite = Data.sprite;
+            if (Data.creationSound != null) Director.GetManager<SoundManager>().PlaySound(Data.creationSound);
         }
         else
         {
@@ -58,6 +62,7 @@ public class ElementInstance : DraggableObject
             achManager.AddCount(Data.creationAchievement);
         }
         achManager.AddCount(achManager.pickupAchievement);
+        Director.GetManager<SoundManager>().PlaySound(pickupSound);
     }
 
     void ItemDropped()
@@ -78,6 +83,7 @@ public class ElementInstance : DraggableObject
                 break;
             }
         }
+        Director.GetManager<SoundManager>().PlaySound(dropSound);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
